@@ -1,0 +1,13 @@
+## Managed by puppet - don't modify
+
+#
+# /etc/hosts: static lookup table for host names
+#
+
+#<ip-address>                    <hostname.domain.org>   <hostname>
+127.0.0.1                        localhost.localdomain   localhost
+::1                              localhost.localdomain   localhost
+106.187.35.145                   konata.philwo.de        konata
+2400:8900::f03c:91ff:fedf:55f3   konata.philwo.de        konata
+
+# End of file

@@ -1,0 +1,18 @@
+## Managed by puppet - don't modify
+
+#
+# ~/.bashrc
+#
+
+shopt -s checkwinsize
+shopt -s cmdhist
+shopt -s extglob
+shopt -s histappend
+shopt -s histverify
+
+export HISTCONTROL=erasedups
+export HISTSIZE=500
+
+alias ls='ls --color=auto'
+
+export PGUSER='postgres'

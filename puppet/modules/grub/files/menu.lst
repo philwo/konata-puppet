@@ -1,0 +1,19 @@
+## Managed by puppet - don't modify
+
+# Config file for GRUB - The GNU GRand Unified Bootloader
+# /boot/grub/menu.lst
+
+# general configuration:
+timeout   5
+default   0
+color light-blue/black light-cyan/blue
+
+# boot sections follow
+# each is implicitly numbered from 0 in the order of appearance below
+#
+#-*
+
+title  Arch Linux
+root   (hd0)
+kernel /boot/vmlinuz-linux root=/dev/xvda console=hvc0 init=/bin/systemd ro quiet
+initrd /boot/initramfs-linux.img

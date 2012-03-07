@@ -1,0 +1,6 @@
+[user]
+name = <%= fullname %>
+email = <%= email %>
+
+[branch]
+autosetupmerge = true

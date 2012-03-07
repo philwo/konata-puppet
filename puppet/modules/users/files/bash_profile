@@ -1,0 +1,8 @@
+## Managed by puppet - don't modify
+
+#
+# ~/.bash_profile
+#
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+

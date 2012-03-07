@@ -1,0 +1,10 @@
+## Managed by puppet - don't modify
+
+#
+# /etc/fstab: static file system information
+#
+# <file system> <dir>   <type>  <options>                             <dump>  <pass>
+tmpfs           /tmp    tmpfs   nodev,nosuid                          0       0
+/dev/xvda       /       ext3    noatime,errors=remount-ro,barrier=0   0       1
+/dev/xvdb       none    swap    sw                                    0       0
+

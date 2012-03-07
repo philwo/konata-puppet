@@ -1,0 +1,13 @@
+[Unit]
+Description=Django Webspace (<%= title %>)
+
+[Service]
+ExecStart=<%= path %>/deploy/bin/gunicorn_django -c wsgi/gunicorn.py
+WorkingDirectory=<%= path %>
+User=<%= user %>
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target

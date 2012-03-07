@@ -1,0 +1,12 @@
+[Unit]
+Description=PHP (user <%= user %>)
+
+[Service]
+ExecStart=/usr/bin/spawn-fcgi -s /var/run/php/<%= user %>.sock -M 0660 -n -u <%= user %> -U <%= user %> -G http -C 2 -- /usr/bin/php-cgi -c /etc/php/php-<%= user %>.ini
+Environment=PHP_FCGI_MAX_REQUESTS=100
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
