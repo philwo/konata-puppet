@@ -46,5 +46,10 @@ node default {
     user => 'philwo',
   }
 
+  webserver::django { 'knmc.philwo.de':
+    path => '/home/philwo/www/knmc.philwo.de/knmc',
+    user => 'philwo',
+  }
+
   webserver::php { 'ch': }
 }

@@ -16,12 +16,12 @@ class postgresql {
     group  => 'postgres',
   }
 
-  file { '/var/log/postgresql.log':
-    ensure => file,
-    owner  => 'postgres',
-    group  => 'postgres',
-    mode   => '0644',
-  }
+  #file { '/var/log/postgresql.log':
+  #  ensure => file,
+  #  owner  => 'postgres',
+  #  group  => 'postgres',
+  #  mode   => '0644',
+  #}
 
   exec { 'postgresql-initdb':
     command => '/usr/bin/initdb --locale en_US.UTF-8 -D /var/lib/postgres/data',

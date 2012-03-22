@@ -43,7 +43,7 @@ class linux {
     owner => 'root',
     group => 'root',
     mode => '0644',
-    source => 'puppet:///modules/locale/locale.gen'
+    source => 'puppet:///modules/linux/locale.gen'
   }
 
   exec { 'locale-gen':
