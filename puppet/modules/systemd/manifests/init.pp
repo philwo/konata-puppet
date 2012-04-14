@@ -55,7 +55,7 @@ class systemd {
 
   file { '/etc/systemd/system/default.target':
     ensure => link,
-    target => '/lib/systemd/system/multi-user.target',
+    target => '/usr/lib/systemd/system/multi-user.target',
   }
 
   # New systemd-journal log

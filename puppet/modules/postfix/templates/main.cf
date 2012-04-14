@@ -1,0 +1,76 @@
+#
+# Global Postfix configuration file. This file lists only a subset
+# of all parameters. For the syntax, and for a complete parameter
+# list, see the postconf(5) manual page (command: "man 5 postconf").
+#
+
+# INTERNET CONNECTION
+inet_protocols = ipv4 ipv6
+smtpd_banner = $myhostname ESMTP $mail_name
+
+# SENDING MAIL
+myorigin = $myhostname
+append_dot_mydomain = no
+
+# RELAY
+mynetworks_style = host
+relay_domains =
+
+# LOCAL ALIASES
+alias_maps = hash:/etc/postfix/aliases
+alias_database = $alias_maps
+
+# RECEIVING MAIL
+mydestination = $myhostname, localhost.$mydomain, localhost
+biff = no
+recipient_delimiter = +
+
+# REJECTING MAIL FOR UNKNOWN LOCAL USERS
+local_recipient_maps = unix:passwd.byname $alias_maps
+unknown_local_recipient_reject_code = 550
+
+# JUNK MAIL CONTROLS
+smtpd_helo_required = yes
+disable_vrfy_command = yes
+
+smtpd_client_restrictions =
+    sleep 5
+smtpd_delay_reject = no
+
+smtpd_recipient_restrictions =
+    reject_non_fqdn_sender,
+    reject_non_fqdn_recipient,
+    reject_unknown_sender_domain,
+    reject_unknown_recipient_domain,
+    permit_mynetworks,
+    permit_tls_clientcerts,
+    permit_sasl_authenticated,
+    reject_unauth_destination,
+    reject_unlisted_recipient,
+    reject_invalid_helo_hostname,
+    reject_non_fqdn_helo_hostname,
+    reject_unknown_helo_hostname,
+    reject_unknown_client_hostname,
+    reject_unauth_pipelining,
+    reject_rbl_client zen.spamhaus.org,
+    reject_rbl_client ix.dnsbl.manitu.net,
+    permit
+
+# LOCAL PATHNAME INFORMATION
+queue_directory = /var/spool/postfix
+command_directory = /usr/sbin
+daemon_directory = /usr/lib/postfix
+data_directory = /var/lib/postfix
+
+# QUEUE AND PROCESS OWNERSHIP
+mail_owner = postfix
+
+# INSTALL-TIME CONFIGURATION INFORMATION
+sendmail_path = /usr/sbin/sendmail
+newaliases_path = /usr/bin/newaliases
+mailq_path = /usr/bin/mailq
+setgid_group = postdrop
+html_directory = no
+manpage_directory = /usr/share/man
+sample_directory = /etc/postfix/sample
+readme_directory = no

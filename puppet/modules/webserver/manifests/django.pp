@@ -1,4 +1,4 @@
-define webserver::django ($path, $user) {
+define webserver::django ($path, $user, $settings) {
   include webserver::python
 
   file { "django-${title}.service":

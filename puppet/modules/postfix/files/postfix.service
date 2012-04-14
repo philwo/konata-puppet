@@ -1,0 +1,12 @@
+[Unit]
+Description=Mail Daemon
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/postfix -c /etc/postfix start
+ExecStop=/usr/sbin/postfix -c /etc/postfix stop
+ExecReload=/usr/sbin/postfix -c /etc/postfix reload
+
+[Install]
+WantedBy=multi-user.target

@@ -2,7 +2,7 @@
 Description=Django Webspace (<%= title %>)
 
 [Service]
-ExecStart=<%= path %>/deploy/bin/gunicorn_django -c wsgi/gunicorn.py
+ExecStart=<%= path %>/deploy/bin/gunicorn_django -c wsgi/gunicorn.py <%= settings %>
 WorkingDirectory=<%= path %>
 User=<%= user %>
 Restart=always
