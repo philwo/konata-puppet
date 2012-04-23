@@ -37,6 +37,10 @@ node default {
     uid => 1001,
   }
 
+  users::user { 'kashiwa':
+    uid => 1002,
+  }
+
   class { 'mysql': }
   class { 'postgresql': }
   class { 'postfix': }
